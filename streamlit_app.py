@@ -1,25 +1,41 @@
 import streamlit as st
 import pandas as pd
-from PIL import Image, ImageDraw
+from PIL import Image
 import tensorflow as tf
 import keras
 from keras.models import Model
 from keras.preprocessing.image import img_to_array, load_img, array_to_img
 
+
+st.set_page_config("Prediction Page",":cat:")
+st.markdown("<h1 style='text-align: center; color: white;'>Cat Breed Classifier</h1>", unsafe_allow_html=True)
+model_name = "CatClassifier_v0"
+name_html = f"<p style='text-align: center; color: grey;font-family: Courier New'>Currently using [{model_name}]</p>"
+
+st.markdown(name_html, unsafe_allow_html=True)
+
+file_col, breed_col = st.columns(2)
+
+
 class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
                'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
+breed_col.header("Supported breeds")
+for cl in class_names:
+    breed_col.write(cl)
 
-model = keras.models.load_model("CatClassifier_v0.keras", compile=False)
+model_name = "CatClassifier_v0"
+model_file = "CatClassifier_v0.keras"
+model = keras.models.load_model(model_file, compile=False)
 
 pred_data = pd.DataFrame(columns=["Breed","Confidence"])
 
 
-uploaded_file = st.file_uploader("Upload image here...", type=["png","jpg","jpeg"])
+uploaded_file = file_col.file_uploader("Upload your cat image here...", type=["png","jpg","jpeg"])
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
     img = img.resize((256,256))
     
-    st.image(img,caption="Input Image", clamp=True, channels="RGB")
+    file_col.image(img,caption="Input Image", clamp=True, channels="RGB")
 
     img_array = img_to_array(img)
     img_array = tf.expand_dims(img_array,0)
@@ -31,7 +47,8 @@ if uploaded_file is not None:
 
 
     pred_data = pred_data.sort_values("Confidence",ascending=False)
-    pred_data
+    file_col.write("The model predicts...")
+    file_col.dataframe(pred_data,hide_index=True)
 
 
 
