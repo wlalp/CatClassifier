@@ -28,6 +28,7 @@ models = ("CatClassifier_v0","CatClassifier_v01")
 with model_col:
     model_name = st.selectbox("Select a model",models)
     model_file = "models/"+ model_name + ".keras"
+    update_html(model_name)
 
 if model_name == "CatClassifier_v0":
     class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
