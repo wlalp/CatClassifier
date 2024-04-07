@@ -33,7 +33,7 @@ with model_col:
 if model_name == "CatClassifier_v0":
     class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
                'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
-elif model_name == "InceptionV3Transfew":       # this is ugly but ultimatly all models should support domestic shorthair so this should be deleted eventually.
+elif model_name == "InceptionV3Transfer":       # this is ugly but ultimatly all models should support domestic shorthair so this should be deleted eventually.
     class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
                'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
 else:
