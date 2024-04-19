@@ -23,7 +23,7 @@ def update_html(model_name):
     name_html = f"<p style='text-align: center; color: grey;font-family: Courier New'>Currently using [{model_name}]</p>"
     name_holder.markdown(name_html,unsafe_allow_html=True)
 
-models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_2")
+models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_3")
 
 with model_col:
     model_name = st.selectbox("Select a model",models)
@@ -31,9 +31,6 @@ with model_col:
     update_html(model_name)
 
 if model_name == "CatClassifier_v0":
-    class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
-               'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
-elif model_name == "VGG16V_2":       # this is ugly but ultimatly all models should support domestic shorthair so this should be deleted eventually.
     class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
                'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
 else:
