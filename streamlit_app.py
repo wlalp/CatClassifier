@@ -24,7 +24,7 @@ def update_html(model_name):
     name_html = f"<p style='text-align: center; color: grey;font-family: Courier New'>Currently using [{model_name}]</p>"
     name_holder.markdown(name_html,unsafe_allow_html=True)
 
-models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_3")
+models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_5")
 
 with model_col:
     model_name = st.selectbox("Select a model",models,key="model_name")
