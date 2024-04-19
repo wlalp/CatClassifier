@@ -24,16 +24,16 @@ def update_html(model_name):
     name_html = f"<p style='text-align: center; color: grey;font-family: Courier New'>Currently using [{model_name}]</p>"
     name_holder.markdown(name_html,unsafe_allow_html=True)
 
-models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_2")
+models = ("CatClassifier_v0","CatClassifier_v01","VGG16V_3")
 
 with model_col:
     model_name = st.selectbox("Select a model",models,key="model_name")
     model_file = "models/"+ model_name + ".keras"
     update_html(model_name)
 
-if model_name == "CatClassifier_v0" or model_name =="VGG16V_2":
-    class_names = sorted(['Bombay', 'Bengal', 'Persian', 'Ragdoll', 'Sphynx', 'Russian Blue', 'Egyptian Mau',
-               'Siamese', 'Birman', 'Abyssinian', 'British Shorthair', 'Maine Coon'])
+if model_name == "CatClassifier_v0":
+    class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
+               'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
 else:
     class_names = sorted(['Bombay', 'Bengal', 'Persian', 'Ragdoll', 'Sphynx', 'Russian Blue', 'Egyptian Mau',
                'Siamese', 'Birman', 'Abyssinian', 'British Shorthair', 'Maine Coon','Domestic Shorthair'])
