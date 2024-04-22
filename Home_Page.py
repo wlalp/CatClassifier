@@ -39,13 +39,8 @@ else:
                'Siamese', 'Birman', 'Abyssinian', 'British Shorthair', 'Maine Coon','Domestic Shorthair'])
 breed_col.header("Supported Breeds")
 
-
-
-
 for cl in class_names:
     breed_col.write(cl)
-
-
 
 model = keras.models.load_model(model_file, compile=False)
 st.session_state.model = model
