@@ -22,10 +22,7 @@ breed_links = ['https://www.purina.com/cats/cat-breeds/abyssinian-cat',
                'https://www.purina.com/cats/cat-breeds/siamese',
                'https://www.purina.com/cats/cat-breeds/sphynx'
                ]
-
-def init_links(links):
-    {}
-
+pred_col, vis_col = st.columns(2)
 
 try:
     pred_df = st.session_state.pred_df
