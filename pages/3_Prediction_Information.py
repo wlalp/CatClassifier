@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from keras.preprocessing.image import img_to_array
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 last_conv_layers = {'CatClassifier_v0':'conv2d_3','CatClassifier_v01':'conv2d_3', 'VGG16V_6':'conv2d_1'}
