@@ -10,12 +10,3 @@ try:
     
 except:
     st.write("No model found!")
-
-
-def show_result():
-    try:
-        img = st.session_state.img
-
-    except:
-        st.write("No prediction made yet...")
-    pass
