@@ -32,12 +32,12 @@ with model_col:
     update_html(model_name)
 
 if model_name == "CatClassifier_v0":
-    class_names = sorted(['bombay', 'bengal', 'persian', 'ragdoll', 'sphynx', 'russian_blue', 'egyptian_mau',
-               'siamese', 'birman', 'abyssinian', 'british_shorthair', 'maine_coon'])
+    class_names = sorted(['Bombay', 'Bengal', 'Persian', 'Ragdoll', 'Sphynx', 'Russian Blue', 'Egyptian Mau',
+               'Siamese', 'Birman', 'Abyssinian', 'British Shorthair', 'Maine Coon',])
 else:
     class_names = sorted(['Bombay', 'Bengal', 'Persian', 'Ragdoll', 'Sphynx', 'Russian Blue', 'Egyptian Mau',
                'Siamese', 'Birman', 'Abyssinian', 'British Shorthair', 'Maine Coon','Domestic Shorthair'])
-breed_col.header("Supported breeds")
+breed_col.header("Supported Breeds")
 
 
 
