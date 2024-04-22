@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 
-last_conv_layers = {'CatClassifier_v01':'conv2d_3','CatClassifier_v01':'conv2d_3'}
+last_conv_layers = {'CatClassifier_v01':'conv2d_3','CatClassifier_v01':'conv2d_3', 'VGG16V_6':''}
 
 
 try:
@@ -18,10 +18,6 @@ try:
     st.dataframe(pred_df,hide_index=True)
 except:
     st.write("No prediction found! Please input an image on the main page to see your results here.")
-
-
-
-
 
 #Reference: https://keras.io/examples/vision/grad_cam/
 def heatmap(img,model,last_conv_layer):
@@ -52,9 +48,9 @@ def heatmap(img,model,last_conv_layer):
 
 if 'model' in st.session_state and 'img' in st.session_state:
     st.write("Let's take a look at what the model saw!")
-    
+
     model = st.session_state.model
-    model_name = st.session_state.model_name()
+    model_name = st.session_state.model_name
     img = st.session_state.img
     heat = heatmap(img,model, last_conv_layers[model_name])
 
